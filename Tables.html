@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Travel Company</title>
+
+    <style>
+        body {
+            background-image: url("background.jpg");
+            background-size: 100% 100%;
+            background-position: right center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+
+<body>
+
+    <img src="logo.png" alt="Travels logo" width="100" height="100">
+    <h1>Company Employees Details</h1>
+    <p>Below is a table that lists the details of our company employees.</p>
+    <h2>Employee Details</h2>
+    <table border="1" cellspacing="1" cellpadding="5" bordercolor="Black" width="10%">
+        <thead bgcolor="Sky Blue" text color="White" face="Arial" size="3">
+            <tr>
+                <th>Employee ID</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Department</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>001</td>
+                <td>John Doe</td>
+                <td>Manager</td>
+                <td>Sales</td>
+                <td>80,000/-</td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>Jane Smith</td>
+                <td>Developer</td>
+                <td>IT</td>
+                <td>70,000/-</td>
+            </tr>
+            <tr>
+                <td>003</td>
+                <td>Emily Johnson</td>
+                <td>Designer</td>
+                <td>Marketing</td>
+                <td>65,000/-</td>
+            </tr>
+            <tr>
+                <td>004</td>
+                <td>Michael Brown</td>
+                <td>Analyst</td>
+                <td>Finance</td>
+                <td>75,000/-</td>
+            </tr>
+            <tr>
+                <td>005</td>
+                <td>Sarah Davis</td>
+                <td>HR Specialist</td>
+                <td>Human Resources</td>
+                <td>60,000/-</td>
+            </tr>
+            <tr>
+                <td>006</td>
+                <td>David Wilson</td>
+                <td>Support Engineer</td>
+                <td>Customer Support</td>
+                <td>55,000/-</td>
+            </tr>
+            <tr>
+                <td>007</td>
+                <td>Olivia Martinez</td>
+                <td>Content Writer</td>
+                <td>Marketing</td>
+                <td>50,000/-</td>
+            </tr>
+            <tr>
+                <td>008</td>
+                <td>James </td>
+                <td>Data Scientist</td>
+                <td>IT</td>
+                <td>85,000/-</td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br>
+    <form id="EmployeeForm">
+        <label for="employeeId">Enter Employee ID to Search:</label>
+        <select id="employeeId">
+            <option value="001">001</option>
+            <option value="002">002</option>
+            <option value="003">003</option>
+            <option value="004">004</option>
+            <option value="005">005</option>
+            <option value="006">006</option>
+            <option value="007">007</option>
+            <option value="008">008</option>
+        </select>
+        <br><br>
+        <button type="submit">Find Employee</button>
+
+    </form>
+    <br><br>
+
+
+
+    <div id="result">
+        <h3>Employee Search Results</h3>
+        <p>
+            <strong>Employee ID:</strong> <span id="searchResultId"></span><br>
+            <strong>Name:</strong> <span id="searchResultName"></span><br>
+            <strong>Salary:</strong> <span id="searchResultSalary"></span>
+        </p>
+    </div>
+
+    <script>
+        const employeeData = [
+            { id: "001", Name: "John Doe", Salary: "80,000/-" },
+            { id: "002", Name: "Jane Smith", Salary: "70,000/-" },
+            { id: "003", Name: "Emily Johnson", Salary: "65,000/-" },
+            { id: "004", Name: "Michael Brown", Salary: "75,000/-" },
+            { id: "005", Name: "Sarah Davis", Salary: "60,000/-" },
+            { id: "006", Name: "David Wilson", Salary: "55,000/-" },
+            { id: "007", Name: "Olivia Martinez", Salary: "50,000/-" },
+            { id: "008", Name: "James Anderson", Salary: "85,000/-" }
+        ];
+
+
+        document.getElementById("EmployeeForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            let employeeId = document.getElementById("employeeId").value;
+            let employee = employeeData.find(function (emp) {
+                return emp.id === employeeId;
+            });
+            if (employee) {
+                document.getElementById("searchResultId").textContent = employee.id;
+                document.getElementById("searchResultName").textContent = employee.Name;
+                document.getElementById("searchResultSalary").textContent = employee.Salary;
+            }
+
+        });
+
+    </script>
+</body>
+
+</html>
